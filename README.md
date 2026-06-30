@@ -38,7 +38,18 @@ git clone https://github.com/RasmuS2024/php-password-gen.git
 
 ## Использование
 
-### Генерация пароля
+### `generatePassword(int $length, int $seed, bool $useUppercase = true, bool $useDigits = true, bool $useSpecial = false): string`
+
+**Параметры:**
+
+| Параметр       | Тип    | По умолчанию | Описание                               |
+|----------------|--------|-------------|----------------------------------------|
+| `$length`      | `int`  | —           | Длина пароля                           |
+| `$seed`        | `int`  | —           | Сид для детерминированной генерации    |
+| `$useUppercase`| `bool` | `true`      | Включить ПРОПИСНЫЕ латинские буквы     |
+| `$useDigits`   | `bool` | `true`      | Включить цифры                         |
+| `$useSpecial`  | `bool` | `false`     | Включить спецсимволы `!@#$%^&*`        |
+
 ```php
 // Базовое использование (только строчные буквы)
 echo generatePassword(10, 12345);
@@ -58,7 +69,16 @@ echo generatePassword(8, 0);     // Сид 0 преобразуется в 1
 echo generatePassword(8, -42);   // Сид -42 преобразуется в 42
 ```
 
-### Проверка надёжности пароля
+### `checkPassword(string $password): string`
+
+**Параметры:**
+
+| Параметр     | Тип      | По умолчанию | Описание               |
+|-------------|----------|-------------|------------------------|
+| `$password` | `string` | —           | Пароль для проверки    |
+
+Возвращает строку в формате `"<вердикт> пароль (оценка <N> из 5)"`.
+
 ```php
 echo checkPassword('abc');           // "Слабый пароль (оценка 1 из 5)"
 echo checkPassword('abcdefgh');      // "Слабый пароль (оценка 2 из 5)"
