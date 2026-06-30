@@ -38,14 +38,14 @@ git clone https://github.com/RasmuS2024/php-password-gen.git
 
 ## Использование
 
-### `generatePassword(int $length, int $seed, bool $useUppercase = true, bool $useDigits = true, bool $useSpecial = false): string`
+#### `generatePassword(int $length, int $seed, bool $useUppercase = true, bool $useDigits = true, bool $useSpecial = false): string`
 
 **Параметры:**
 
 | Параметр       | Тип    | По умолчанию | Описание                               |
 |----------------|--------|-------------|----------------------------------------|
-| `$length`      | `int`  | —           | Длина пароля                           |
-| `$seed`        | `int`  | —           | Сид для детерминированной генерации    |
+| `$length`      | `int`  | -           | Длина пароля                           |
+| `$seed`        | `int`  | -           | Сид для детерминированной генерации    |
 | `$useUppercase`| `bool` | `true`      | Включить ПРОПИСНЫЕ латинские буквы     |
 | `$useDigits`   | `bool` | `true`      | Включить цифры                         |
 | `$useSpecial`  | `bool` | `false`     | Включить спецсимволы `!@#$%^&*`        |
@@ -69,13 +69,13 @@ echo generatePassword(8, 0);     // Сид 0 преобразуется в 1
 echo generatePassword(8, -42);   // Сид -42 преобразуется в 42
 ```
 
-### `checkPassword(string $password): string`
+#### `checkPassword(string $password): string`
 
 **Параметры:**
 
 | Параметр     | Тип      | По умолчанию | Описание               |
 |-------------|----------|-------------|------------------------|
-| `$password` | `string` | —           | Пароль для проверки    |
+| `$password` | `string` | -           | Пароль для проверки    |
 
 Возвращает строку в формате `"<вердикт> пароль (оценка <N> из 5)"`.
 
